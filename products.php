@@ -43,9 +43,8 @@
                         include('connect_db.php');
                         $mylist=explode("=",$_SERVER['HTTP_REFERER']);
                         $prodid=end($mylist);
-                        $allowed=array("http://localhost/e_shopping/index.php","http://localhost/e_shopping/change.php?prodId=$prodid");               
-                        if( in_array($_SERVER['HTTP_REFERER'],$allowed)){
-                        $mylist=explode("=",$_SERVER['HTTP_REFERER']);
+                        $allowed=array("http://localhost/e_shopping/index.php","http://localhost/e_shopping/change.php?prodId=$prodid","http://localhost/e_shopping/products.php");               
+                        if( in_array($_SERVER['HTTP_REFERER'],$allowed)){            
                         $statement=$db->prepare("SELECT * FROM `products`");
                         $statement->execute();
                         $allProducts=$statement->fetchAll();
